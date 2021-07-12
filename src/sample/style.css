@@ -1,0 +1,13 @@
+.win{
+    -fx-background-color: red;
+}
+
+.text-field{
+    -fx-padding: 10;
+}
+.label{
+    -fx-padding: 10;
+}
+.menu {
+    -fx-padding: 0;
+}
