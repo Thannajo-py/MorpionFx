@@ -57,7 +57,6 @@ public class Game {
             prompt.setText("Egalité!");
             disableGrid(grid);
             this.finished = true;
-            return;
         }
     }
 

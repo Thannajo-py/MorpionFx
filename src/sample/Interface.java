@@ -78,7 +78,7 @@ public class Interface {
                         p2.play(square, prompt, p1);
                     }
                     game.passATurn(this.prompt,this.grid);
-                    if (this.multiplayerChoice == "one player" && !game.isFinished()){
+                    if (this.multiplayerChoice.equals("one player") && !game.isFinished()){
                             p2.aiPlay(game, prompt, p1);
                             game.passATurn(this.prompt,this.grid);
                     }
@@ -165,7 +165,4 @@ public class Interface {
 
     }
 
-    public String getMultiplayerChoice() {
-        return multiplayerChoice;
-    }
 }
