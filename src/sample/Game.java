@@ -13,6 +13,7 @@ public class Game {
     private boolean player1 = true;
     private int turn = 0;
     private ArrayList<Button> listOfSquare = new ArrayList<>();
+    private boolean finished = false;
     private void checkVictory(Label prompt, GridPane grid){
         for(int j = 0; j < 3; j++){
             if (this.checkLine(j)){
@@ -20,6 +21,7 @@ public class Game {
                     listOfSquare.get(3 * j + i).getStyleClass().add("win");
                 }
                 endGame(prompt, grid);
+                this.finished = true;
                 return;
             }
             if (this.checkColumn(j)){
@@ -27,6 +29,7 @@ public class Game {
                     listOfSquare.get(j + 3 * i).getStyleClass().add("win");
                 }
                 endGame(prompt, grid);
+                this.finished = true;
                 return;
             }
         }
@@ -37,6 +40,7 @@ public class Game {
                 listOfSquare.get(4 * i).getStyleClass().add("win");
             }
             endGame(prompt, grid);
+            this.finished = true;
             return;
         }
 
@@ -45,16 +49,18 @@ public class Game {
                 listOfSquare.get(2 + 2 * i).getStyleClass().add("win");
             }
             endGame(prompt, grid);
+            this.finished = true;
             return;
         }
 
         if (this.turn == 9) {
             prompt.setText("Egalité!");
             disableGrid(grid);
-
+            this.finished = true;
+            return;
         }
-
     }
+
     private void endGame(Label prompt, GridPane grid){
         if (this.player1){
             prompt.setText("Player1 Win!");
@@ -64,14 +70,17 @@ public class Game {
         }
         disableGrid(grid);
     }
+
     private void disableGrid(GridPane grid){
         for (Node b:grid.getChildren()){
             b.setDisable(true);
         }
     }
+
     public void reset(){
         this.turn = 0;
         this.player1 = true;
+        this.finished = false;
         for (Button b:this.listOfSquare){
             b.setText("");
             b.setGraphic(null);
@@ -120,5 +129,17 @@ public class Game {
         return !listOfSquare.get(6).getText().isEmpty() &&
                 listOfSquare.get(6).getText().equals(listOfSquare.get(4).getText()) &&
                 listOfSquare.get(4).getText().equals(listOfSquare.get(2).getText());
+    }
+
+    public ArrayList<Button> getListOfSquare() {
+        return listOfSquare;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public boolean isFinished(){
+        return this.finished;
     }
 }
