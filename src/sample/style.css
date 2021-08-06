@@ -11,3 +11,17 @@
 .menu {
     -fx-padding: 0;
 }
+.prompt{
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-font-size: 2em;
+    -fx-font-weight: bold;
+
+}
+
+.button{
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}

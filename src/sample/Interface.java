@@ -92,7 +92,6 @@ public class Interface {
                     }
                 }
             });
-
             square.setMinHeight(120);
             square.setMinWidth(120);
             GridPane.setRowIndex(square,i%3);
@@ -106,10 +105,11 @@ public class Interface {
         VBox prompter = new VBox();
 
         prompter.setAlignment(Pos.CENTER);
+        prompter.getStyleClass().add("prompt");
         prompter.setMinHeight(100);
         prompter.setCenterShape(true);
 
-        this.prompt.setText(p1.getName() + " your turn to play!");
+        this.prompt.setText(p1.getName() + " your turn!");
         prompter.getChildren().add(this.prompt);
 
         return prompter;
